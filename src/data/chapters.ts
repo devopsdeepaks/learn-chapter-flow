@@ -1,167 +1,666 @@
 
 export interface Chapter {
-  id: string;
   subject: 'Physics' | 'Chemistry' | 'Mathematics';
-  classLevel: string;
+  chapter: string;
+  class: string;
   unit: string;
-  title: string;
+  yearWiseQuestionCount: {
+    [year: string]: number;
+  };
+  questionSolved: number;
   status: 'Not Started' | 'In Progress' | 'Completed';
-  weak: boolean;
-  progressPercent: number;
+  isWeakChapter: boolean;
 }
 
 export const chapters: Chapter[] = [
-  // Physics chapters
   {
-    id: '1',
-    subject: 'Physics',
-    classLevel: '2025: 80s',
-    unit: '2024: 60s',
-    title: 'Gravitation',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Mathematics in Physics",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 0,
+      "2020": 2,
+      "2021": 5,
+      "2022": 5,
+      "2023": 3,
+      "2024": 7,
+      "2025": 6
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
   },
   {
-    id: '2',
-    subject: 'Physics',
-    classLevel: '2025: 20s',
-    unit: '2024: 60s',
-    title: 'Math in Physics',
-    status: 'In Progress',
-    weak: true,
-    progressPercent: 56
+    "subject": "Physics",
+    "chapter": "Units and Dimensions",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 2,
+      "2020": 6,
+      "2021": 8,
+      "2022": 4,
+      "2023": 6,
+      "2024": 3,
+      "2025": 10
+    },
+    "questionSolved": 39,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '3',
-    subject: 'Physics',
-    classLevel: '2025: 60s',
-    unit: '2024: 60s',
-    title: 'Units and Dimensions',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Motion In One Dimension",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 2,
+      "2020": 10,
+      "2021": 6,
+      "2022": 7,
+      "2023": 0,
+      "2024": 2,
+      "2025": 6
+    },
+    "questionSolved": 33,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '4',
-    subject: 'Physics',
-    classLevel: '2025: 80s',
-    unit: '2024: 60s',
-    title: 'Motion in One Dimension long name',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Motion In Two Dimensions",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 10,
+      "2021": 2,
+      "2022": 7,
+      "2023": 8,
+      "2024": 0,
+      "2025": 8
+    },
+    "questionSolved": 38,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '5',
-    subject: 'Physics',
-    classLevel: '2025: 80s',
-    unit: '2024: 60s',
-    title: 'Motion in Two Dimensions',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 0,
+      "2021": 6,
+      "2022": 5,
+      "2023": 8,
+      "2024": 6,
+      "2025": 8
+    },
+    "questionSolved": 36,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '6',
-    subject: 'Physics',
-    classLevel: '2025: 80s',
-    unit: '2024: 60s',
-    title: 'Laws of Motion',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Work Power Energy",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 10,
+      "2020": 4,
+      "2021": 9,
+      "2022": 10,
+      "2023": 2,
+      "2024": 7,
+      "2025": 5
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
   },
   {
-    id: '7',
-    subject: 'Physics',
-    classLevel: '2025: 80s',
-    unit: '2024: 60s',
-    title: 'Centre of Mass Equilibrium and Momentum',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
-  },
-  // Chemistry chapters
-  {
-    id: '8',
-    subject: 'Chemistry',
-    classLevel: 'Class 11',
-    unit: 'Unit 1',
-    title: 'Atomic Structure',
-    status: 'Completed',
-    weak: false,
-    progressPercent: 100
+    "subject": "Physics",
+    "chapter": "Center of Mass Momentum and Collision",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 7,
+      "2020": 5,
+      "2021": 2,
+      "2022": 7,
+      "2023": 6,
+      "2024": 10,
+      "2025": 0
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
   },
   {
-    id: '9',
-    subject: 'Chemistry',
-    classLevel: 'Class 11',
-    unit: 'Unit 2',
-    title: 'Chemical Bonding',
-    status: 'In Progress',
-    weak: true,
-    progressPercent: 45
+    "subject": "Physics",
+    "chapter": "Rotational Motion",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 9,
+      "2020": 9,
+      "2021": 9,
+      "2022": 9,
+      "2023": 9,
+      "2024": 2,
+      "2025": 5
+    },
+    "questionSolved": 52,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '10',
-    subject: 'Chemistry',
-    classLevel: 'Class 12',
-    unit: 'Unit 1',
-    title: 'Organic Chemistry',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "class": "Class 11",
+    "unit": "Mechanics 1",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 4,
+      "2021": 5,
+      "2022": 9,
+      "2023": 0,
+      "2024": 6,
+      "2025": 8
+    },
+    "questionSolved": 35,
+    "status": "Completed",
+    "isWeakChapter": false
   },
   {
-    id: '11',
-    subject: 'Chemistry',
-    classLevel: 'Class 12',
-    unit: 'Unit 3',
-    title: 'Thermodynamics',
-    status: 'In Progress',
-    weak: false,
-    progressPercent: 67
-  },
-  // Mathematics chapters
-  {
-    id: '12',
-    subject: 'Mathematics',
-    classLevel: 'Class 11',
-    unit: 'Unit 1',
-    title: 'Algebra Fundamentals',
-    status: 'Completed',
-    weak: false,
-    progressPercent: 100
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Solids",
+    "class": "Class 11",
+    "unit": "Mechanics 2",
+    "yearWiseQuestionCount": {
+      "2019": 4,
+      "2020": 6,
+      "2021": 0,
+      "2022": 2,
+      "2023": 10,
+      "2024": 10,
+      "2025": 7
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
   },
   {
-    id: '13',
-    subject: 'Mathematics',
-    classLevel: 'Class 11',
-    unit: 'Unit 2',
-    title: 'Trigonometry',
-    status: 'In Progress',
-    weak: true,
-    progressPercent: 78
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Fluids",
+    "class": "Class 11",
+    "unit": "Mechanics 2",
+    "yearWiseQuestionCount": {
+      "2019": 2,
+      "2020": 0,
+      "2021": 1,
+      "2022": 0,
+      "2023": 0,
+      "2024": 7,
+      "2025": 8
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
   },
   {
-    id: '14',
-    subject: 'Mathematics',
-    classLevel: 'Class 12',
-    unit: 'Unit 1',
-    title: 'Calculus',
-    status: 'Not Started',
-    weak: false,
-    progressPercent: 0
+    "subject": "Physics",
+    "chapter": "Thermal Properties of Matter",
+    "class": "Class 11",
+    "unit": "Thermodynamics",
+    "yearWiseQuestionCount": {
+      "2019": 6,
+      "2020": 9,
+      "2021": 10,
+      "2022": 0,
+      "2023": 0,
+      "2024": 9,
+      "2025": 1
+    },
+    "questionSolved": 35,
+    "status": "Completed",
+    "isWeakChapter": true
   },
   {
-    id: '15',
-    subject: 'Mathematics',
-    classLevel: 'Class 12',
-    unit: 'Unit 2',
-    title: 'Coordinate Geometry',
-    status: 'In Progress',
-    weak: false,
-    progressPercent: 34
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "class": "Class 11",
+    "unit": "Thermodynamics",
+    "yearWiseQuestionCount": {
+      "2019": 8,
+      "2020": 10,
+      "2021": 9,
+      "2022": 5,
+      "2023": 6,
+      "2024": 8,
+      "2025": 4
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Kinetic Theory of Gases",
+    "class": "Class 11",
+    "unit": "Thermodynamics",
+    "yearWiseQuestionCount": {
+      "2019": 4,
+      "2020": 7,
+      "2021": 3,
+      "2022": 8,
+      "2023": 2,
+      "2024": 5,
+      "2025": 3
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Oscillations",
+    "class": "Class 11",
+    "unit": "Mechanics 2",
+    "yearWiseQuestionCount": {
+      "2019": 7,
+      "2020": 2,
+      "2021": 1,
+      "2022": 4,
+      "2023": 10,
+      "2024": 2,
+      "2025": 9
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Waves and Sound",
+    "class": "Class 11",
+    "unit": "Mechanics 2",
+    "yearWiseQuestionCount": {
+      "2019": 4,
+      "2020": 4,
+      "2021": 2,
+      "2022": 8,
+      "2023": 6,
+      "2024": 8,
+      "2025": 6
+    },
+    "questionSolved": 22,
+    "status": "In Progress",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 0,
+      "2020": 1,
+      "2021": 3,
+      "2022": 1,
+      "2023": 3,
+      "2024": 3,
+      "2025": 7
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Capacitance",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 2,
+      "2020": 9,
+      "2021": 1,
+      "2022": 5,
+      "2023": 7,
+      "2024": 8,
+      "2025": 5
+    },
+    "questionSolved": 11,
+    "status": "In Progress",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Current Electricity",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 0,
+      "2020": 10,
+      "2021": 0,
+      "2022": 4,
+      "2023": 6,
+      "2024": 8,
+      "2025": 10
+    },
+    "questionSolved": 38,
+    "status": "Completed",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Magnetic Properties of Matter",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 8,
+      "2021": 6,
+      "2022": 2,
+      "2023": 9,
+      "2024": 1,
+      "2025": 2
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Magnetic Effects of Current",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 8,
+      "2021": 0,
+      "2022": 2,
+      "2023": 4,
+      "2024": 0,
+      "2025": 4
+    },
+    "questionSolved": 21,
+    "status": "Completed",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Induction",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 2,
+      "2020": 10,
+      "2021": 9,
+      "2022": 1,
+      "2023": 9,
+      "2024": 4,
+      "2025": 7
+    },
+    "questionSolved": 16,
+    "status": "In Progress",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Alternating Current",
+    "class": "Class 12",
+    "unit": "Electromagnetism",
+    "yearWiseQuestionCount": {
+      "2019": 8,
+      "2020": 4,
+      "2021": 5,
+      "2022": 9,
+      "2023": 1,
+      "2024": 10,
+      "2025": 9
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Waves",
+    "class": "Class 12",
+    "unit": "Miscellaneous",
+    "yearWiseQuestionCount": {
+      "2019": 10,
+      "2020": 6,
+      "2021": 0,
+      "2022": 2,
+      "2023": 5,
+      "2024": 9,
+      "2025": 9
+    },
+    "questionSolved": 28,
+    "status": "In Progress",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Ray Optics",
+    "class": "Class 12",
+    "unit": "Optics",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 6,
+      "2021": 10,
+      "2022": 4,
+      "2023": 10,
+      "2024": 6,
+      "2025": 10
+    },
+    "questionSolved": 30,
+    "status": "In Progress",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Wave Optics",
+    "class": "Class 12",
+    "unit": "Optics",
+    "yearWiseQuestionCount": {
+      "2019": 3,
+      "2020": 10,
+      "2021": 10,
+      "2022": 9,
+      "2023": 8,
+      "2024": 5,
+      "2025": 4
+    },
+    "questionSolved": 6,
+    "status": "In Progress",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Dual Nature of Matter",
+    "class": "Class 12",
+    "unit": "Modern Physics",
+    "yearWiseQuestionCount": {
+      "2019": 9,
+      "2020": 0,
+      "2021": 6,
+      "2022": 0,
+      "2023": 4,
+      "2024": 7,
+      "2025": 9
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Atomic Physics",
+    "class": "Class 12",
+    "unit": "Modern Physics",
+    "yearWiseQuestionCount": {
+      "2019": 6,
+      "2020": 4,
+      "2021": 1,
+      "2022": 7,
+      "2023": 4,
+      "2024": 2,
+      "2025": 1
+    },
+    "questionSolved": 14,
+    "status": "In Progress",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Nuclear Physics",
+    "class": "Class 12",
+    "unit": "Modern Physics",
+    "yearWiseQuestionCount": {
+      "2019": 7,
+      "2020": 2,
+      "2021": 6,
+      "2022": 3,
+      "2023": 5,
+      "2024": 2,
+      "2025": 8
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Semiconductors",
+    "class": "Class 12",
+    "unit": "Miscellaneous",
+    "yearWiseQuestionCount": {
+      "2019": 9,
+      "2020": 10,
+      "2021": 9,
+      "2022": 8,
+      "2023": 6,
+      "2024": 2,
+      "2025": 7
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Communication System",
+    "class": "Class 12",
+    "unit": "Miscellaneous",
+    "yearWiseQuestionCount": {
+      "2019": 5,
+      "2020": 10,
+      "2021": 8,
+      "2022": 2,
+      "2023": 5,
+      "2024": 1,
+      "2025": 10
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": true
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Experimental Physics",
+    "class": "Class 12",
+    "unit": "Miscellaneous",
+    "yearWiseQuestionCount": {
+      "2019": 6,
+      "2020": 7,
+      "2021": 4,
+      "2022": 10,
+      "2023": 5,
+      "2024": 8,
+      "2025": 0
+    },
+    "questionSolved": 0,
+    "status": "Not Started",
+    "isWeakChapter": false
+  },
+  // Add Chemistry chapters
+  {
+    "subject": "Chemistry",
+    "chapter": "Some Basic Concepts of Chemistry",
+    "class": "Class 11",
+    "unit": "Basic Concepts",
+    "yearWiseQuestionCount": {
+      "2019": 5,
+      "2020": 3,
+      "2021": 7,
+      "2022": 4,
+      "2023": 6,
+      "2024": 8,
+      "2025": 5
+    },
+    "questionSolved": 25,
+    "status": "In Progress",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Atomic Structure",
+    "class": "Class 11",
+    "unit": "Basic Concepts",
+    "yearWiseQuestionCount": {
+      "2019": 8,
+      "2020": 6,
+      "2021": 9,
+      "2022": 7,
+      "2023": 5,
+      "2024": 4,
+      "2025": 8
+    },
+    "questionSolved": 47,
+    "status": "Completed",
+    "isWeakChapter": false
+  },
+  // Add Mathematics chapters
+  {
+    "subject": "Mathematics",
+    "chapter": "Sets",
+    "class": "Class 11",
+    "unit": "Algebra",
+    "yearWiseQuestionCount": {
+      "2019": 4,
+      "2020": 5,
+      "2021": 3,
+      "2022": 6,
+      "2023": 7,
+      "2024": 5,
+      "2025": 4
+    },
+    "questionSolved": 20,
+    "status": "In Progress",
+    "isWeakChapter": false
+  },
+  {
+    "subject": "Mathematics",
+    "chapter": "Relations and Functions",
+    "class": "Class 11",
+    "unit": "Algebra",
+    "yearWiseQuestionCount": {
+      "2019": 6,
+      "2020": 8,
+      "2021": 5,
+      "2022": 9,
+      "2023": 4,
+      "2024": 7,
+      "2025": 6
+    },
+    "questionSolved": 35,
+    "status": "Completed",
+    "isWeakChapter": true
   }
 ];

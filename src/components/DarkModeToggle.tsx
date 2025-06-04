@@ -1,39 +1,38 @@
 
 'use client';
 
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { Sun, Moon } from '@phosphor-icons/react';
+import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 
 export function DarkModeToggle() {
-  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <Button variant="outline" size="icon" disabled>
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      </Button>
+    );
   }
 
   return (
-    <button
+    <Button
+      variant="outline"
+      size="icon"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
-      aria-label="Toggle dark mode"
     >
       {theme === 'dark' ? (
-        <>
-          <Sun size={16} />
-          <span className="text-sm font-medium">Light</span>
-        </>
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
       ) : (
-        <>
-          <Moon size={16} />
-          <span className="text-sm font-medium">Dark</span>
-        </>
+        <Moon className="h-[1.2rem] w-[1.2rem]" />
       )}
-    </button>
+    </Button>
   );
 }

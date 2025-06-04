@@ -18,8 +18,12 @@ import {
 // Random icon assignment using Lucide icons
 const icons = [Atom, BarChart3, Lightbulb, Rocket, Target, Settings, Beaker, Calculator];
 
-const getIconForChapter = (id: string) => {
-  const index = parseInt(id) % icons.length;
+const getIconForChapter = (chapter: string) => {
+  const hash = chapter.split('').reduce((a, b) => {
+    a = ((a << 5) - a) + b.charCodeAt(0);
+    return a & a;
+  }, 0);
+  const index = Math.abs(hash) % icons.length;
   return icons[index];
 };
 
@@ -34,8 +38,18 @@ const getStatusColor = (status: Chapter['status']) => {
   }
 };
 
+const getTotalQuestions = (yearWiseQuestionCount: Chapter['yearWiseQuestionCount']) => {
+  return Object.values(yearWiseQuestionCount).reduce((sum, count) => sum + count, 0);
+};
+
+const getProgressPercent = (questionSolved: number, totalQuestions: number) => {
+  return totalQuestions > 0 ? Math.round((questionSolved / totalQuestions) * 100) : 0;
+};
+
 export function ChapterCard({ chapter }: { chapter: Chapter }) {
-  const Icon = getIconForChapter(chapter.id);
+  const Icon = getIconForChapter(chapter.chapter);
+  const totalQuestions = getTotalQuestions(chapter.yearWiseQuestionCount);
+  const progressPercent = getProgressPercent(chapter.questionSolved, totalQuestions);
 
   return (
     <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
@@ -48,18 +62,18 @@ export function ChapterCard({ chapter }: { chapter: Chapter }) {
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between mb-2">
           <h3 className="font-semibold text-gray-900 dark:text-white truncate pr-2">
-            {chapter.title}
+            {chapter.chapter}
           </h3>
           <div className="flex-shrink-0 text-right">
             <div className="text-sm text-gray-500 dark:text-gray-400">
-              {chapter.progressPercent}/205 Qs
+              {chapter.questionSolved}/{totalQuestions} Qs
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-2 mb-3">
           <Badge variant="secondary" className="text-xs">
-            {chapter.classLevel}
+            {chapter.class}
           </Badge>
           <Badge variant="secondary" className="text-xs">
             {chapter.unit}
@@ -67,12 +81,17 @@ export function ChapterCard({ chapter }: { chapter: Chapter }) {
           <Badge className={`text-xs ${getStatusColor(chapter.status)}`}>
             {chapter.status}
           </Badge>
+          {chapter.isWeakChapter && (
+            <Badge variant="destructive" className="text-xs">
+              Weak
+            </Badge>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
-          <Progress value={chapter.progressPercent} className="flex-1" />
+          <Progress value={progressPercent} className="flex-1" />
           <span className="text-sm text-gray-500 dark:text-gray-400 min-w-[3rem]">
-            {chapter.progressPercent}%
+            {progressPercent}%
           </span>
         </div>
       </div>

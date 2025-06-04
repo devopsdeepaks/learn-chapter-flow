@@ -18,7 +18,7 @@ export function ChapterList() {
       if (chapter.subject !== filters.subjectTab) return false;
 
       // Filter by class levels
-      if (filters.classFilters.length > 0 && !filters.classFilters.includes(chapter.classLevel)) {
+      if (filters.classFilters.length > 0 && !filters.classFilters.includes(chapter.class)) {
         return false;
       }
 
@@ -33,16 +33,16 @@ export function ChapterList() {
       }
 
       // Filter by weak chapters
-      if (filters.weakToggle && !chapter.weak) {
+      if (filters.weakToggle && !chapter.isWeakChapter) {
         return false;
       }
 
       return true;
     });
 
-    // Sort by title
+    // Sort by chapter name
     filtered.sort((a, b) => {
-      const comparison = a.title.localeCompare(b.title);
+      const comparison = a.chapter.localeCompare(b.chapter);
       return filters.sortOrder === 'asc' ? comparison : -comparison;
     });
 
@@ -90,8 +90,8 @@ export function ChapterList() {
 
       {/* Chapter List */}
       <div className="space-y-3">
-        {filteredAndSortedChapters.map((chapter) => (
-          <ChapterCard key={chapter.id} chapter={chapter} />
+        {filteredAndSortedChapters.map((chapter, index) => (
+          <ChapterCard key={`${chapter.subject}-${chapter.chapter}-${index}`} chapter={chapter} />
         ))}
       </div>
 

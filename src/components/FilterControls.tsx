@@ -26,7 +26,7 @@ export function FilterControls() {
   );
 
   const classOptions = useMemo(
-    () => [...new Set(subjectChapters.map((chapter) => chapter.classLevel))],
+    () => [...new Set(subjectChapters.map((chapter) => chapter.class))],
     [subjectChapters]
   );
 

@@ -11,7 +11,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { FilterControls } from './FilterControls';
-import { Funnel } from '@phosphor-icons/react';
+import { Filter } from 'lucide-react';
 
 export function FilterDrawer() {
   const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ export function FilterDrawer() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="outline" className="flex items-center gap-2">
-          <Funnel size={16} />
+          <Filter size={16} />
           Filters
         </Button>
       </SheetTrigger>
