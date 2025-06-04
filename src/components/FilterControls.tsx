@@ -13,7 +13,7 @@ import { chapters } from '@/data/chapters';
 import { MultiSelect } from '@/components/ui/multi-select';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
-import { ArrowUp, ArrowDown } from '@phosphor-icons/react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 import { useMemo } from 'react';
 
 export function FilterControls() {

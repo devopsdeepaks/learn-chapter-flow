@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, ChevronDown } from '@phosphor-icons/react';
+import { Check, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,

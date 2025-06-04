@@ -6,17 +6,17 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import {
   Atom,
-  ChartBar,
+  BarChart3,
   Lightbulb,
   Rocket,
   Target,
-  Gear,
-  Molecule,
+  Settings,
+  Beaker,
   Calculator,
-} from '@phosphor-icons/react';
+} from 'lucide-react';
 
-// Random icon assignment
-const icons = [Atom, ChartBar, Lightbulb, Rocket, Target, Gear, Molecule, Calculator];
+// Random icon assignment using Lucide icons
+const icons = [Atom, BarChart3, Lightbulb, Rocket, Target, Settings, Beaker, Calculator];
 
 const getIconForChapter = (id: string) => {
   const index = parseInt(id) % icons.length;
