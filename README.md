@@ -1,73 +1,143 @@
-# Welcome to your Lovable project
 
-## Project info
+# Chapter List - Educational Progress Tracker
 
-**URL**: https://lovable.dev/projects/efa528d2-9186-497e-bcd9-4d3644593960
+A modern, responsive chapter tracking application built with Next.js, Redux, and Tailwind CSS. Features dark/light mode, advanced filtering, and a clean UI that matches educational platforms.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Subject Tabs**: Switch between Physics, Chemistry, and Mathematics
+- **Advanced Filtering**: Multi-select filters for Class, Units, Status, and weak chapters
+- **Sorting**: Ascending/descending sort with visual indicators
+- **Dark/Light Mode**: Automatic system preference detection with manual toggle
+- **Responsive Design**: Optimized for desktop and mobile with drawer filters
+- **Progress Tracking**: Visual progress bars and status badges
+- **Redux State Management**: Centralized state for filters and preferences
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/efa528d2-9186-497e-bcd9-4d3644593960) and start prompting.
+- **Next.js** (App Router)
+- **React 18** with TypeScript
+- **Redux Toolkit** for state management
+- **Tailwind CSS** for styling
+- **shadcn/ui** components
+- **Phosphor Icons** for visual elements
+- **next-themes** for dark mode
 
-Changes made via Lovable will be committed automatically to this repo.
+## Quick Start
 
-**Use your preferred IDE**
+```bash
+# Install dependencies
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Visit `http://localhost:3000` to see the application.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/
+│   ├── providers/           # Redux and Theme providers
+│   ├── ui/                  # shadcn/ui components (read-only)
+│   ├── ChapterCard.tsx      # Individual chapter display
+│   ├── ChapterList.tsx      # Main chapter list with filtering
+│   ├── DarkModeToggle.tsx   # Theme switcher
+│   ├── FilterControls.tsx   # Desktop filter controls
+│   ├── FilterDrawer.tsx     # Mobile filter drawer
+│   └── TabsNavigation.tsx   # Subject tabs
+├── data/
+│   └── chapters.ts          # Dummy chapter data
+├── store/
+│   ├── store.ts             # Redux store configuration
+│   ├── filtersSlice.ts      # Filter state management
+│   └── hooks.ts             # Typed Redux hooks
+└── pages/
+    ├── Index.tsx            # Main page component
+    └── NotFound.tsx         # 404 page
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## State Management
 
-## What technologies are used for this project?
+The application uses Redux Toolkit for state management with the following structure:
 
-This project is built with:
+```typescript
+interface FiltersState {
+  subjectTab: 'Physics' | 'Chemistry' | 'Mathematics';
+  classFilters: string[];
+  unitFilters: string[];
+  statusFilters: string[];
+  weakToggle: boolean;
+  sortOrder: 'asc' | 'desc';
+}
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Data Schema
 
-## How can I deploy this project?
+Each chapter follows this TypeScript interface:
 
-Simply open [Lovable](https://lovable.dev/projects/efa528d2-9186-497e-bcd9-4d3644593960) and click on Share -> Publish.
+```typescript
+interface Chapter {
+  id: string;
+  subject: 'Physics' | 'Chemistry' | 'Mathematics';
+  classLevel: string;
+  unit: string;
+  title: string;
+  status: 'Not Started' | 'In Progress' | 'Completed';
+  weak: boolean;
+  progressPercent: number;
+}
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Replacing Dummy Data
 
-Yes, you can!
+To integrate real data, replace the dummy data in `src/data/chapters.ts`:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```typescript
+// Replace this with your API call
+export const chapters = await fetchChaptersFromAPI();
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Deployment
+
+This project is ready for deployment on Vercel, Netlify, or any platform supporting Next.js.
+
+For Vercel:
+```bash
+npm i -g vercel
+vercel
+```
+
+## Customization
+
+- **Colors**: Modify Tailwind config in `tailwind.config.ts`
+- **Icons**: Add more Phosphor icons in `ChapterCard.tsx`
+- **Filters**: Extend filter logic in `filtersSlice.ts`
+- **Themes**: Customize dark/light themes in `src/index.css`
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - feel free to use this project for personal or commercial purposes.
